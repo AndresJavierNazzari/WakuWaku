@@ -1,0 +1,6 @@
+@WakuWakuAPI.Presentation_HostAddress = http://localhost:5231
+
+GET {{WakuWakuAPI.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
