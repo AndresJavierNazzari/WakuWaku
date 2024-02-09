@@ -1,14 +1,7 @@
 ﻿namespace WakuWakuAPI.Domain.Models;
-public class Category {
-    private static int lastId = 0;
-
-    public int Id { get; set; }
+public class Category : BaseModel
+{
     public string Name { get; set; }
     public string Description { get; set; }
-
-    public Category(string name, string description) {
-        this.Id = ++lastId;
-        this.Name = name;
-        this.Description = description;
-    }
+    public ICollection<Skill> Skills { get; set; }
 }

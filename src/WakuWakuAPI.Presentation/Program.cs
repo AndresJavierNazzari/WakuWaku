@@ -13,25 +13,30 @@ using WakuWakuAPI.Presentation.Middlewares;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WakuWakuAPI.Presentation {
-    public class Program {
-        public static void Main(string[] args) {
+namespace WakuWakuAPI.Presentation
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
 
             // ***********  BUILDER ************ //
             var builder = WebApplication.CreateBuilder(args);
             builder = ConfigureServicesAndMiddlewares(builder);
 
 
-            // ***********  PIPELINE ************ //
+            // *********  PIPELINE ************ //
             var app = builder.Build();
             ConfigurePipeline(app);
         }
 
 
-        public static WebApplicationBuilder ConfigureServicesAndMiddlewares(WebApplicationBuilder builder) {
+        public static WebApplicationBuilder ConfigureServicesAndMiddlewares(WebApplicationBuilder builder)
+        {
             // Add services to the container.
 
-            builder.Services.AddControllers(configure => {
+            builder.Services.AddControllers(configure =>
+            {
                 configure.ReturnHttpNotAcceptable = true;
                 configure.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status400BadRequest));
                 configure.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status406NotAcceptable));
@@ -43,19 +48,22 @@ namespace WakuWakuAPI.Presentation {
             builder.Services.AddSwaggerGen();
 
             // ***********  GZIP COMPRESSION ************
-            builder.Services.AddResponseCompression(options => {
+            builder.Services.AddResponseCompression(options =>
+            {
                 options.EnableForHttps = true;
                 options.Providers.Add<GzipCompressionProvider>();
             });
 
             // ***********  API VERSIONING ************
-            var apiVersioningBuilder = builder.Services.AddApiVersioning(setupAction => {
+            var apiVersioningBuilder = builder.Services.AddApiVersioning(setupAction =>
+            {
                 setupAction.AssumeDefaultVersionWhenUnspecified = true;
                 setupAction.DefaultApiVersion = new ApiVersion(1, 0);
                 setupAction.ReportApiVersions = true;
 
             });
-            apiVersioningBuilder.AddApiExplorer(options => {
+            apiVersioningBuilder.AddApiExplorer(options =>
+            {
                 // add the versioned api explorer, which also adds IApiVersionDescriptionProvider service
                 // note: the specified format code will format the version as "'v'major[.minor][-status]"
                 options.GroupNameFormat = "'v'VVV";
@@ -92,8 +100,10 @@ namespace WakuWakuAPI.Presentation {
             builder.Services.AddHealthChecks();
 
             // ***********  CORS ************
-            builder.Services.AddCors(options => {
-                options.AddDefaultPolicy(policy => {
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                {
                     policy.WithOrigins("https://localhost:7140/")
                     .AllowAnyMethod()
                     .AllowAnyHeader();
@@ -104,10 +114,12 @@ namespace WakuWakuAPI.Presentation {
         }
 
 
-        public static void ConfigurePipeline(WebApplication app) {
+        public static void ConfigurePipeline(WebApplication app)
+        {
             app.UseResponseCompression();
             // Configure the HTTP request pipeline.
-            if(app.Environment.IsDevelopment()) {
+            if(app.Environment.IsDevelopment())
+            {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
