@@ -1,4 +1,5 @@
 ﻿namespace WakuWakuAPI.Domain.Models;
+
 public class Goal : BaseModel
 {
     public string Description { get; set; }
@@ -10,5 +11,5 @@ public class Goal : BaseModel
     public int DificultyId { get; set; }
     public Dificulty Dificulty { get; set; }
     public int StatusId { get; set; }
-    public String Status { get; set; }
+    public Status Status { get; set; }
 }

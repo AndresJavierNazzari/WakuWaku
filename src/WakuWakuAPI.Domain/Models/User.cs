@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WakuWakuAPI.Domain.Models;
+﻿namespace WakuWakuAPI.Domain.Models;
 
 public class User : BaseModel
 {
