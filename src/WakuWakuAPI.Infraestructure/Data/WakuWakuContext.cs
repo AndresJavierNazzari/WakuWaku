@@ -63,12 +63,6 @@ public class WakuWakuContext : DbContext
         modelBuilder.SeedUsersData();
         modelBuilder.SeedUsers();
         modelBuilder.SeedGoals();
-
-
-
-
-
-
     }
 
 }
