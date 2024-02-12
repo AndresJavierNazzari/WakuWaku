@@ -1,12 +1,14 @@
 ﻿using WakuWakuAPI.Domain.Models;
 
 namespace WakuWakuAPI.Infraestructure.InMemory;
-public class InMemoryPersistanceService : IInMemoryPersistenceService {
+public class InMemoryPersistanceService : IInMemoryPersistenceService
+{
     public IList<Category> Categories { get; set; }
     public IList<Goal> Goals { get; set; }
 
-    public InMemoryPersistanceService() {
-
+    public InMemoryPersistanceService()
+    {
+        /*
         Categories = new List<Category> {
                 new Category("Language", "Category related to languages."),
                 new Category("Musical Instrument", "Category related to musical instruments."),
@@ -37,5 +39,6 @@ public class InMemoryPersistanceService : IInMemoryPersistenceService {
                 new Goal("Aprender a tocar un instrumento", DateTime.Today, new DateTime(2024, 6, 30), "Planificado"),
                 new Goal("Contribuir a un proyecto de código abierto", DateTime.Today, new DateTime(2023, 12, 31), "En progreso"),
              };
+        */
     }
 }
