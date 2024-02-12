@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.ResponseCompression;
 using WakuWakuAPI.Infraestructure.InMemory;
 using WakuWakuAPI.Infraestructure.Repositories.Interfaces;
 using WakuWakuAPI.Infraestructure.Repositories;
+using WakuWakuAPI.Infraestructure.Data;
 using WakuWakuAPI.Application.Services.Interfaces;
 using WakuWakuAPI.Application.Services;
 using FluentValidation.AspNetCore;
@@ -12,6 +13,7 @@ using WakuWakuAPI.Domain.DTOs;
 using WakuWakuAPI.Presentation.Middlewares;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace WakuWakuAPI.Presentation
 {
@@ -110,6 +112,11 @@ namespace WakuWakuAPI.Presentation
                 });
             });
 
+            // ***********  DBCONTEXT ************
+            builder.Services.AddDbContext<WakuWakuContext>(options =>
+            {
+                options.UseNpgsql(builder.Configuration.GetConnectionString("WakuWakuContext"));
+            });
             return builder;
         }
 
