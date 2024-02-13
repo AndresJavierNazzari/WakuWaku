@@ -1,9 +1,8 @@
 using Asp.Versioning;
 using Microsoft.AspNetCore.ResponseCompression;
-using WakuWakuAPI.Infraestructure.InMemory;
+using WakuWakuAPI.Infraestructure.Data;
 using WakuWakuAPI.Infraestructure.Repositories.Interfaces;
 using WakuWakuAPI.Infraestructure.Repositories;
-using WakuWakuAPI.Infraestructure.Data;
 using WakuWakuAPI.Application.Services.Interfaces;
 using WakuWakuAPI.Application.Services;
 using FluentValidation.AspNetCore;
@@ -35,15 +34,16 @@ namespace WakuWakuAPI.Presentation
 
         public static WebApplicationBuilder ConfigureServicesAndMiddlewares(WebApplicationBuilder builder)
         {
-            // Add services to the container.
+            builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
+            // Add services to the container.
             builder.Services.AddControllers(configure =>
             {
                 configure.ReturnHttpNotAcceptable = true;
                 configure.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status400BadRequest));
                 configure.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status406NotAcceptable));
                 configure.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
-                configure.Filters.Add(new AuthorizeFilter());
+                //configure.Filters.Add(new AuthorizeFilter());
             });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -84,7 +84,7 @@ namespace WakuWakuAPI.Presentation
 
             // ***********  DEPENDENCY INJECTION ************
             // Persistance
-            builder.Services.AddSingleton<IInMemoryPersistenceService, InMemoryPersistanceService>();
+            //builder.Services.AddSingleton<IInMemoryPersistenceService, InMemoryPersistanceService>();
 
             // Repositories
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
@@ -106,7 +106,7 @@ namespace WakuWakuAPI.Presentation
             {
                 options.AddDefaultPolicy(policy =>
                 {
-                    policy.WithOrigins("https://localhost:7140/")
+                    policy.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader();
                 });
@@ -117,6 +117,7 @@ namespace WakuWakuAPI.Presentation
             {
                 options.UseNpgsql(builder.Configuration.GetConnectionString("WakuWakuContext"));
             });
+
             return builder;
         }
 
@@ -136,8 +137,6 @@ namespace WakuWakuAPI.Presentation
             app.UseRouting();
             //The call to UseCors must be placed after UseRouting, but before UseAuthorization
             app.UseCors();
-
-            app.UseAuthorization();
 
             app.MapControllers();
             app.MapHealthChecks("/health");
