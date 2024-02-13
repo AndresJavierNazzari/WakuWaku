@@ -55,42 +55,42 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9604),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2368),
                             Description = "Some description",
                             Name = "Frontend"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9605),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2370),
                             Description = "Some description",
                             Name = "Backend"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9606),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2370),
                             Description = "Some description",
                             Name = "Mobile"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9607),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2371),
                             Description = "Some description",
                             Name = "DevOps"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9607),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2372),
                             Description = "Some description",
                             Name = "Data Science"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9608),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2373),
                             Description = "Some description",
                             Name = "Design"
                         });
@@ -125,19 +125,19 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9456),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2226),
                             Description = "Easy"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9461),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2229),
                             Description = "Medium"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9462),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2230),
                             Description = "Hard"
                         });
                 });
@@ -194,8 +194,8 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9764),
-                            Deadline = new DateTime(2024, 3, 10, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9765),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2536),
+                            Deadline = new DateTime(2024, 3, 14, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2537),
                             Description = "Learn HTML",
                             DificultyId = 1,
                             SkillId = 1,
@@ -205,8 +205,8 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9773),
-                            Deadline = new DateTime(2024, 3, 10, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9774),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2547),
+                            Deadline = new DateTime(2024, 3, 14, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2548),
                             Description = "Learn CSS",
                             DificultyId = 1,
                             SkillId = 2,
@@ -216,8 +216,8 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9775),
-                            Deadline = new DateTime(2024, 3, 10, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9775),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2549),
+                            Deadline = new DateTime(2024, 3, 14, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2549),
                             Description = "Learn JavaScript",
                             DificultyId = 1,
                             SkillId = 3,
@@ -227,8 +227,8 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9776),
-                            Deadline = new DateTime(2024, 3, 10, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9777),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2550),
+                            Deadline = new DateTime(2024, 3, 14, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2551),
                             Description = "Learn React",
                             DificultyId = 1,
                             SkillId = 4,
@@ -238,8 +238,8 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9778),
-                            Deadline = new DateTime(2024, 3, 10, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9778),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2551),
+                            Deadline = new DateTime(2024, 3, 14, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2552),
                             Description = "Learn Angular",
                             DificultyId = 1,
                             SkillId = 5,
@@ -249,8 +249,8 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9779),
-                            Deadline = new DateTime(2024, 3, 10, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9779),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2553),
+                            Deadline = new DateTime(2024, 3, 14, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2553),
                             Description = "Learn Vue",
                             DificultyId = 1,
                             SkillId = 6,
@@ -260,8 +260,8 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9780),
-                            Deadline = new DateTime(2024, 3, 10, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9781),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2554),
+                            Deadline = new DateTime(2024, 3, 14, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2555),
                             Description = "Learn Node",
                             DificultyId = 1,
                             SkillId = 7,
@@ -309,7 +309,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9668),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2394),
                             Description = "Programing language",
                             Name = "HTML"
                         },
@@ -317,7 +317,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9671),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2396),
                             Description = "Programing language",
                             Name = "CSS"
                         },
@@ -325,7 +325,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9672),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2397),
                             Description = "Programing language",
                             Name = "JavaScript"
                         },
@@ -333,7 +333,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 4,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9673),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2398),
                             Description = "Library",
                             Name = "React"
                         },
@@ -341,7 +341,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 5,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9673),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2437),
                             Description = "Framework",
                             Name = "Angular"
                         },
@@ -349,7 +349,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 6,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9674),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2438),
                             Description = "Framework",
                             Name = "Vue"
                         },
@@ -357,7 +357,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 7,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9675),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2439),
                             Description = "Runtime environment",
                             Name = "Node"
                         },
@@ -365,7 +365,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 8,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9676),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2440),
                             Description = "Programing language",
                             Name = "Python"
                         },
@@ -373,7 +373,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 9,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9676),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2441),
                             Description = "Programing language",
                             Name = "Ruby"
                         },
@@ -381,7 +381,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 10,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9677),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2442),
                             Description = "Programing language",
                             Name = "Java"
                         },
@@ -389,7 +389,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 11,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9678),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2442),
                             Description = "Programing language",
                             Name = "C#"
                         },
@@ -397,7 +397,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 12,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9678),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2443),
                             Description = "Programing language",
                             Name = "PHP"
                         },
@@ -405,7 +405,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 13,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9679),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2444),
                             Description = "Programing language",
                             Name = "Swift"
                         },
@@ -413,7 +413,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 14,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9680),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2445),
                             Description = "Programing language",
                             Name = "Kotlin"
                         },
@@ -421,7 +421,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 15,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9681),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2445),
                             Description = "Programing language",
                             Name = "Objective-C"
                         },
@@ -429,7 +429,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 16,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9681),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2446),
                             Description = "Framework",
                             Name = "Xamarin"
                         },
@@ -437,7 +437,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 17,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9682),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2447),
                             Description = "Framework",
                             Name = "Flutter"
                         },
@@ -445,7 +445,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 18,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9683),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2447),
                             Description = "Framework",
                             Name = "Ionic"
                         },
@@ -453,7 +453,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 19,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9684),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2448),
                             Description = "Containerization platform",
                             Name = "Docker"
                         },
@@ -461,7 +461,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 20,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9684),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2449),
                             Description = "Container orchestration platform",
                             Name = "Kubernetes"
                         },
@@ -469,7 +469,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 21,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9685),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2450),
                             Description = "Automation server",
                             Name = "Jenkins"
                         },
@@ -477,7 +477,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 22,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9686),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2450),
                             Description = "DevOps platform",
                             Name = "GitLab"
                         },
@@ -485,7 +485,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 23,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9687),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2451),
                             Description = "DevOps platform",
                             Name = "GitHub"
                         },
@@ -493,7 +493,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 24,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9688),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2452),
                             Description = "DevOps platform",
                             Name = "Bitbucket"
                         },
@@ -501,7 +501,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 25,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9690),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2452),
                             Description = "Programing language",
                             Name = "Python"
                         },
@@ -509,7 +509,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 26,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9691),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2453),
                             Description = "Programing language",
                             Name = "R"
                         },
@@ -517,7 +517,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 27,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9692),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2454),
                             Description = "Programing language",
                             Name = "Scala"
                         },
@@ -525,7 +525,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 28,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9693),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2454),
                             Description = "Programing language",
                             Name = "Julia"
                         },
@@ -533,7 +533,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 29,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9693),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2455),
                             Description = "Programing language",
                             Name = "Matlab"
                         },
@@ -541,7 +541,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         {
                             Id = 30,
                             CategoryId = 6,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9694),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2456),
                             Description = "Design software",
                             Name = "Photoshop"
                         });
@@ -576,19 +576,19 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9582),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2344),
                             Description = "To Do"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9583),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2346),
                             Description = "In Progress"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9585),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2346),
                             Description = "Done"
                         });
                 });
@@ -632,7 +632,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9744),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2513),
                             FirstName = "John",
                             LastName = "Doe",
                             UserDataId = 1
@@ -640,7 +640,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9746),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2516),
                             FirstName = "Jane",
                             LastName = "Doe",
                             UserDataId = 2
@@ -648,7 +648,7 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9747),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2517),
                             FirstName = "John",
                             LastName = "Smith",
                             UserDataId = 3
@@ -688,21 +688,21 @@ namespace WakuWakuAPI.Infraestructure.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9726),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2491),
                             Email = "email1@email.com",
                             Password = "password1"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9728),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2493),
                             Email = "email2@email.com",
                             Password = "password2"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 2, 9, 14, 50, 26, 548, DateTimeKind.Utc).AddTicks(9729),
+                            CreatedAt = new DateTime(2024, 2, 13, 9, 38, 32, 85, DateTimeKind.Utc).AddTicks(2494),
                             Email = "email3@email.com",
                             Password = "password3"
                         });
