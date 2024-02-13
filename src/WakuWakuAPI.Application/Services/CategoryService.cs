@@ -1,4 +1,6 @@
-﻿using WakuWakuAPI.Domain.Models;
+﻿using MapsterMapper;
+
+using WakuWakuAPI.Domain.Models;
 using WakuWakuAPI.Domain.DTOs;
 using WakuWakuAPI.Application.Services.Interfaces;
 using WakuWakuAPI.Infraestructure.Repositories.Interfaces;
@@ -10,16 +12,19 @@ public class CategoryService : ICategoryService
 {
 
     private readonly ICategoryRepository _categoryRepository;
-    public CategoryService(ICategoryRepository categoryRepository)
+    private readonly IMapper _mapper;
+
+    public CategoryService(ICategoryRepository categoryRepository, IMapper mapper)
     {
         ArgumentNullException.ThrowIfNull(categoryRepository);
+        ArgumentNullException.ThrowIfNull(mapper);
         _categoryRepository = categoryRepository;
-
+        _mapper = mapper;
     }
 
     public async Task<IEnumerable<Category>> GetCategoriesAsync(int page = 1, int pageSize = 10, string filter = "")
     {
-        var categoryList = await _categoryRepository.GetCategoriesAsync();
+        var categoryList = await _categoryRepository.GetCategoriesAsyncAsNoTracking();
         NotFoundException.ThrowIfNull(categoryList, ErrorMessage.CategoryListEmpty);
 
         var paginatedCategories = categoryList!.Skip((page - 1) * pageSize).Take(pageSize);
@@ -42,16 +47,20 @@ public class CategoryService : ICategoryService
         return category!;
     }
 
-    public Category AddCategory(CategoryForCreation categoryForCreation)
+    public async Task<Category> AddCategoryAsync(CategoryForCreation categoryForCreation)
     {
-        var createdCategory = _categoryRepository.AddCategory(categoryForCreation);
+        var category = _mapper.Map<Category>(categoryForCreation);
+        
+        await _categoryRepository.AddCategoryAsync(category);
 
-        return createdCategory;
+        return category;
     }
 
-    public Category UpdateCategory(int id, CategoryForUpdate categoryForUpdate)
+    public async Task<Category> UpdateCategoryAsync(CategoryForUpdate categoryForUpdate)
     {
-        Category UpdatedCategory = _categoryRepository.UpdateCategory(id, categoryForUpdate);
+        var newValuescategory = _mapper.Map<Category>(categoryForUpdate);
+        var categoryToUpdate = await _categoryRepository.GetCategoryByIdAsync(newValuescategory.Id); 
+        var UpdatedCategory = await _categoryRepository.UpdateCategoryAsync(categoryToUpdate!, newValuescategory);
 
         return UpdatedCategory;
     }
