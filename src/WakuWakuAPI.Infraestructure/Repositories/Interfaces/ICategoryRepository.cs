@@ -2,12 +2,14 @@
 using WakuWakuAPI.Domain.DTOs;
 
 namespace WakuWakuAPI.Infraestructure.Repositories.Interfaces;
-public interface ICategoryRepository {
-    IEnumerable<Category> GetCategories();
-    Category GetCategoryById(int id);
+public interface ICategoryRepository
+{
+    Task<IEnumerable<Category>?> GetCategoriesAsync();
+    Task<Category?> GetCategoryByIdAsyncAsNoTracking(int id);
+    Task<Category?> GetCategoryByIdAsync(int id);
     Category AddCategory(CategoryForCreation categoryForCreation);
     Category UpdateCategory(int id, CategoryForUpdate categoryForUpdate);
-    Category DeleteCategoryById(int id);
+    Task<Category> DeleteCategoryByIdAsync(Category category);
 
 }
 

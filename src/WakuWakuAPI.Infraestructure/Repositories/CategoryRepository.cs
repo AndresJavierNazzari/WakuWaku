@@ -1,7 +1,9 @@
-﻿using WakuWakuAPI.Domain.Models;
+﻿using Microsoft.EntityFrameworkCore;
+
 using WakuWakuAPI.Domain.DTOs;
-using WakuWakuAPI.Infraestructure.Repositories.Interfaces;
+using WakuWakuAPI.Domain.Models;
 using WakuWakuAPI.Infraestructure.Data;
+using WakuWakuAPI.Infraestructure.Repositories.Interfaces;
 
 namespace WakuWakuAPI.Infraestructure.Repositories;
 public class CategoryRepository : ICategoryRepository
@@ -14,41 +16,27 @@ public class CategoryRepository : ICategoryRepository
         _context = context;
     }
 
-    public IEnumerable<Category> GetCategories()
+    public async Task<IEnumerable<Category>?> GetCategoriesAsync()
     {
-        IEnumerable<Category> categoryList = _context.Categories;
-        return categoryList;
+        return await Task.FromResult(_context.Categories.ToList());
     }
 
-    public Category GetCategoryById(int id)
+    public async Task<Category?> GetCategoryByIdAsyncAsNoTracking(int id)
     {
-        var categoryList = _context.Categories;
+        return await _context.Categories.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
+    }
 
-        if(categoryList != null)
-        {
-            Category category = categoryList.FirstOrDefault(c => c.Id == id);
-            return category;
-        }
-        return null;
+    public async Task<Category?> GetCategoryByIdAsync(int id)
+    {
+        return await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
     }
 
     public Category AddCategory(CategoryForCreation categoryForCreation)
     {
         var categoryList = _context.Categories;
         return null;
-        /*
-         if(categoryList != null)
-         {
-             Category createdCategory = new Category(categoryForCreation.Name, categoryForCreation.Description);
-             categoryList.Add(createdCategory);
-
-             return createdCategory;
-
-
-         };
-        */
-
     }
+
     public Category UpdateCategory(int id, CategoryForUpdate categoryForUpdate)
     {
         var categoryList = _context.Categories;
@@ -65,17 +53,19 @@ public class CategoryRepository : ICategoryRepository
         return null;
     }
 
-    public Category DeleteCategoryById(int id)
+    public async Task<Category> DeleteCategoryByIdAsync(Category category)
     {
-        var categoryList = _context.Categories;
-        if(categoryList != null)
-        {
-            Category? category = categoryList.FirstOrDefault(c => c.Id == id);
+        // Temporarily change the state of the entity to Detached
+        //_context.Entry(category).State = EntityState.Detached;
+        // Remove the entity physically
+        //_context.Categories.Remove(category);
 
-            categoryList.Remove(category);
+        // Mark the entity as deleted
+        _context.Entry(category).State = EntityState.Deleted;
 
-            return category;
-        }
-        return null;
+        // Save the changes to the database using the overridden method
+        await _context.SaveChangesAsync();
+        return category;
     }
+
 }
