@@ -39,11 +39,39 @@ public class CategoryController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<Category>> GetCategoryById(int id = 0)
+    public async Task<ActionResult<Category>> GetCategoryByIdAsync(int id = 0)
     {
         EmptyIdException.ThrowIfIdZero(id, ErrorMessage.IdZeroOrNegative);
         var category = await _categoryService.GetCategoryByIdAsync(id);
         return Ok(category);
+    }
+
+    // POST: /Category
+    [HttpPost(Name = "CreateCategory")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
+    public async Task<ActionResult<Category>> CreateCategoryAsync([FromBody] CategoryForCreation categoryForCreation)
+    {
+        ValidationResult result = _validator.Validate(categoryForCreation);
+
+        if(!result.IsValid) {
+            throw new ValidationException(result.Errors);
+        }
+
+        var category = await _categoryService.AddCategoryAsync(categoryForCreation);
+        return CreatedAtRoute("CreateCategory", category);
+    }
+
+    //  PUT: /Category
+    [HttpPut]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<Category>> UpdateCategoryAsync([FromBody] CategoryForUpdate categoryForUpdate)
+    {
+        var categoryUpdated = await _categoryService.UpdateCategoryAsync(categoryForUpdate);
+
+        return Ok(categoryUpdated);
     }
 
     // DELETE: /Category/{id}
@@ -51,10 +79,10 @@ public class CategoryController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult DeleteCategory(int id = 0)
+    public async Task<IActionResult> DeleteCategoryAsync(int id = 0)
     {
         EmptyIdException.ThrowIfIdZero(id);
-        var deletedCategory = _categoryService.DeleteCategoryByIdAsync(id);
+        var deletedCategory = await _categoryService.DeleteCategoryByIdAsync(id);
 
         var response = new
         {
@@ -73,42 +101,6 @@ public class CategoryController : ControllerBase
         Response.Headers.Append("Allow", "GET, POST, PUT, DELETE, OPTIONS");
         return Ok();
     }
-    /*
-    // POST: /Category
-    [HttpPost(Name = "CreateCategory")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-    public ActionResult<Category> CreateCategory([FromBody] CategoryForCreation categoryForCreation)
-    {
-
-        ValidationResult result = _validator.Validate(categoryForCreation);
-
-        if(!result.IsValid)
-        {
-            throw new ValidationException(result.Errors);
-        }
-
-        var category = _categoryService.AddCategory(categoryForCreation);
-        return CreatedAtRoute("CreateCategory", new { id = category.Id }, category);
-    }
-
-    //  PUT: /Category/{id}
-    [HttpPut("{id}")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<Category> UpdateCategory([FromBody] CategoryForUpdate categoryForUpdate, int id = 0)
-    {
-        EmptyIdException.ThrowIfIdZero(id);
-        var category = _categoryService.UpdateCategory(id, categoryForUpdate);
-
-        return Ok(category);
-    }
-
-    
-
-   
-    */
 }
 
 
