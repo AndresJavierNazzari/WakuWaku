@@ -16,9 +16,10 @@ public class CategoryRepository : ICategoryRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Category>?> GetCategoriesAsync()
+    public async Task<IEnumerable<Category>?> GetCategoriesAsyncAsNoTracking()
     {
-        return await Task.FromResult(_context.Categories.ToList());
+        var categoriesTask = await Task.FromResult(_context.Categories.AsNoTracking().ToListAsync());
+        return categoriesTask.Result;
     }
 
     public async Task<Category?> GetCategoryByIdAsyncAsNoTracking(int id)
@@ -31,26 +32,32 @@ public class CategoryRepository : ICategoryRepository
         return await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
     }
 
-    public Category AddCategory(CategoryForCreation categoryForCreation)
+    public async Task<Category> AddCategoryAsync(Category category)
     {
-        var categoryList = _context.Categories;
-        return null;
+        await _context.Categories.AddAsync(category);
+        await _context.SaveChangesAsync();
+        return category;
     }
 
-    public Category UpdateCategory(int id, CategoryForUpdate categoryForUpdate)
+    public async Task<Category> UpdateCategoryAsync(Category categoryToUpdate, Category newValuesCategory)
     {
-        var categoryList = _context.Categories;
+        // Save the value of CreatedAt from the original entity
+        var createdAt = categoryToUpdate.CreatedAt;
 
-        if(categoryList != null)
-        {
-            Category? existingCategory = categoryList.FirstOrDefault(c => c.Id == id);
+        // Copy the values from the new entity to the original entity
+        _context.Entry(categoryToUpdate).CurrentValues.SetValues(newValuesCategory);
 
-            existingCategory.Name = categoryForUpdate.Name;
-            existingCategory.Description = categoryForUpdate.Description;
+        // Restore the value of CreatedAt
+        categoryToUpdate.CreatedAt = createdAt;
 
-            return existingCategory;
-        }
-        return null;
+        // Set the state of the entity as modified
+        _context.Entry(categoryToUpdate).State = EntityState.Modified;
+
+        // Save the changes
+        await _context.SaveChangesAsync();
+
+        // Return the updated entity
+        return categoryToUpdate;
     }
 
     public async Task<Category> DeleteCategoryByIdAsync(Category category)
