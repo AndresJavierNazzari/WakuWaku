@@ -65,4 +65,38 @@ public class WakuWakuContext : DbContext
         modelBuilder.SeedGoals();
     }
 
+
+    public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+    {
+        UpdateDeletedAtAndUpdatedAtColumns();
+        return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+    }
+
+    public override int SaveChanges()
+    {
+        UpdateDeletedAtAndUpdatedAtColumns();
+        return base.SaveChanges();
+    }
+
+    private void UpdateDeletedAtAndUpdatedAtColumns()
+    {
+        var currentTime = DateTime.UtcNow;
+
+
+        var entries = ChangeTracker.Entries()
+            .Where(e => e.State == EntityState.Deleted || e.State == EntityState.Modified);
+        foreach(var entry in entries)
+        {
+            // Update UpdatedAt
+            entry.Property("UpdatedAt").CurrentValue = currentTime;
+
+            // If the entity is being deleted, update DeletedAt
+            if(entry.State == EntityState.Deleted)
+            {
+                entry.Property("DeletedAt").CurrentValue = currentTime;
+                entry.State = EntityState.Modified;
+            }
+
+        }
+    }
 }
