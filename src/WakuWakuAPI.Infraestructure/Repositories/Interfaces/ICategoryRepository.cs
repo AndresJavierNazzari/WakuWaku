@@ -4,11 +4,11 @@ using WakuWakuAPI.Domain.DTOs;
 namespace WakuWakuAPI.Infraestructure.Repositories.Interfaces;
 public interface ICategoryRepository
 {
-    Task<IEnumerable<Category>?> GetCategoriesAsync();
+    Task<IEnumerable<Category>?> GetCategoriesAsyncAsNoTracking();
     Task<Category?> GetCategoryByIdAsyncAsNoTracking(int id);
     Task<Category?> GetCategoryByIdAsync(int id);
-    Category AddCategory(CategoryForCreation categoryForCreation);
-    Category UpdateCategory(int id, CategoryForUpdate categoryForUpdate);
+    Task<Category> AddCategoryAsync(Category category);
+    Task<Category> UpdateCategoryAsync(Category categoryToUpdate, Category newValuescategory); 
     Task<Category> DeleteCategoryByIdAsync(Category category);
 
 }
