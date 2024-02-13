@@ -1,18 +1,22 @@
 using Asp.Versioning;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Mapster;
+using MapsterMapper;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+
 using WakuWakuAPI.Infraestructure.Data;
 using WakuWakuAPI.Infraestructure.Repositories.Interfaces;
 using WakuWakuAPI.Infraestructure.Repositories;
 using WakuWakuAPI.Application.Services.Interfaces;
 using WakuWakuAPI.Application.Services;
-using FluentValidation.AspNetCore;
-using FluentValidation;
 using WakuWakuAPI.Application.Validators;
 using WakuWakuAPI.Domain.DTOs;
 using WakuWakuAPI.Presentation.Middlewares;
-using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace WakuWakuAPI.Presentation
 {
@@ -83,6 +87,12 @@ namespace WakuWakuAPI.Presentation
             builder.Services.AddFluentValidationAutoValidation();
 
             // ***********  DEPENDENCY INJECTION ************
+            
+            // Mapster configuration, this scans all custom configs
+            var config = TypeAdapterConfig.GlobalSettings;
+            config.Scan(Assembly.GetExecutingAssembly());
+            builder.Services.AddSingleton(config);
+
             // Persistance
             //builder.Services.AddSingleton<IInMemoryPersistenceService, InMemoryPersistanceService>();
 
@@ -97,6 +107,10 @@ namespace WakuWakuAPI.Presentation
             // Validators
             builder.Services.AddScoped<IValidator<GoalForCreation>, GoalValidator>();
             builder.Services.AddScoped<IValidator<CategoryForCreation>, CategoryValidator>();
+
+            //  IMapper
+            builder.Services.AddScoped<IMapper, ServiceMapper>();
+
 
             // ***********  HEALTHCHECK ************
             builder.Services.AddHealthChecks();
