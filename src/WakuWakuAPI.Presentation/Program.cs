@@ -87,7 +87,7 @@ namespace WakuWakuAPI.Presentation
             builder.Services.AddFluentValidationAutoValidation();
 
             // ***********  DEPENDENCY INJECTION ************
-            
+
             // Mapster configuration, this scans all custom configs
             var config = TypeAdapterConfig.GlobalSettings;
             config.Scan(Assembly.GetExecutingAssembly());
@@ -99,10 +99,12 @@ namespace WakuWakuAPI.Presentation
             // Repositories
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<IGoalRepository, GoalRepository>();
+            builder.Services.AddScoped<ISkillRepository, SkillRepository>();
 
             // Services
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IGoalService, GoalService>();
+            builder.Services.AddScoped<ISkillService, SkillService>();
 
             // Validators
             builder.Services.AddScoped<IValidator<GoalForCreation>, GoalValidator>();

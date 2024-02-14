@@ -82,7 +82,6 @@ public class WakuWakuContext : DbContext
     {
         var currentTime = DateTime.UtcNow;
 
-
         var entries = ChangeTracker.Entries()
             .Where(e => e.State == EntityState.Deleted || e.State == EntityState.Modified);
         foreach(var entry in entries)
