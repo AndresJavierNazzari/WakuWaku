@@ -14,12 +14,12 @@ RUN dotnet restore src/WakuWakuAPI.Presentation/WakuWakuAPI.Presentation.csproj
 
 # copy everything else and build app
 
-COPY src/WakuWakuAPI.Application/. /src/WakuWakuAPI.Application/
-COPY src/WakuWakuAPI.Domain/. /src/WakuWakuAPI.Domain/
-COPY src/WakuWakuAPI.Infraestructure/. /src/WakuWakuAPI.Infraestructure/
-COPY src/WakuWakuAPI.Presentation/. /src/WakuWakuAPI.Presentation/
+COPY src/WakuWakuAPI.Application/. ./src/WakuWakuAPI.Application/
+COPY src/WakuWakuAPI.Domain/. ./src/WakuWakuAPI.Domain/
+COPY src/WakuWakuAPI.Infraestructure/. ./src/WakuWakuAPI.Infraestructure/
+COPY src/WakuWakuAPI.Presentation/. ./src/WakuWakuAPI.Presentation/
 
-COPY tests/WakuWakuAPI.Presentation.Tests/. /tests/WakuWakuAPI.Presentation.Tests/
+COPY tests/WakuWakuAPI.Presentation.Tests/. ./tests/WakuWakuAPI.Presentation.Tests/
 
 RUN dotnet publish -c Release -o out
 
