@@ -18,13 +18,18 @@ public class CategoryRepository : ICategoryRepository
 
     public async Task<IEnumerable<Category>?> GetCategoriesAsyncAsNoTracking()
     {
-        var categoriesTask = await Task.FromResult(_context.Categories.AsNoTracking().ToListAsync());
-        return categoriesTask.Result;
+        return await _context.Categories
+            .Include(c=>c.Skills)
+            .AsNoTracking()
+            .ToListAsync();
     }
 
     public async Task<Category?> GetCategoryByIdAsyncAsNoTracking(int id)
     {
-        return await _context.Categories.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
+        return await _context.Categories
+            .Include(c => c.Skills)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(c => c.Id == id);
     }
 
     public async Task<Category?> GetCategoryByIdAsync(int id)

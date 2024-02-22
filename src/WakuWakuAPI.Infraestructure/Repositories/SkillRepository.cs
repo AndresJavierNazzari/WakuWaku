@@ -18,22 +18,18 @@ public class SkillRepository : ISkillRepository
 
     public async Task<IEnumerable<Skill>?> GetSkillsAsyncAsNoTracking()
     {
-        /* 
-        var skillsWithCategories = await _context.Skills
+        return await _context.Skills
                .Include(skill => skill.Category)
                .AsNoTracking()
                .ToListAsync();
-
-        return skillsWithCategories;
-        */
-
-        var skillsTask = await Task.FromResult(_context.Skills.AsNoTracking().ToListAsync());
-        return skillsTask.Result;
     }
 
     public async Task<Skill?> GetSkillByIdAsyncAsNoTracking(int id)
     {
-        return await _context.Skills.AsNoTracking().FirstOrDefaultAsync(s => s.Id == id);
+        return await _context.Skills
+            .Include(skill => skill.Category)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(s => s.Id == id);
     }
 
     public async Task<Skill?> GetSkillByIdAsync(int id)

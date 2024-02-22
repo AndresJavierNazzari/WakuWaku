@@ -1,22 +1,26 @@
 using Asp.Versioning;
+using System.Text.Json;
+using System.Reflection;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Mapster;
 using MapsterMapper;
-using FluentValidation.AspNetCore;
 using FluentValidation;
+using FluentValidation.AspNetCore;
 
-using WakuWakuAPI.Infraestructure.Data;
-using WakuWakuAPI.Infraestructure.Repositories.Interfaces;
-using WakuWakuAPI.Infraestructure.Repositories;
-using WakuWakuAPI.Application.Services.Interfaces;
+using WakuWakuAPI.Domain.DTOs;
 using WakuWakuAPI.Application.Services;
 using WakuWakuAPI.Application.Validators;
-using WakuWakuAPI.Domain.DTOs;
 using WakuWakuAPI.Presentation.Middlewares;
-using System.Reflection;
+using WakuWakuAPI.Application.Services.Interfaces;
+using WakuWakuAPI.Infraestructure.Data;
+using WakuWakuAPI.Infraestructure.Repositories;
+using WakuWakuAPI.Infraestructure.Repositories.Interfaces;
 
 namespace WakuWakuAPI.Presentation
 {
@@ -48,7 +52,14 @@ namespace WakuWakuAPI.Presentation
                 configure.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status406NotAcceptable));
                 configure.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
                 //configure.Filters.Add(new AuthorizeFilter());
+
+            }).AddJsonOptions(o => {
+                o.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                o.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
             });
+            
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
