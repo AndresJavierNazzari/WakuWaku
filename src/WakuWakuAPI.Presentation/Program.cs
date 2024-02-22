@@ -53,12 +53,13 @@ namespace WakuWakuAPI.Presentation
                 configure.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
                 //configure.Filters.Add(new AuthorizeFilter());
 
-            }).AddJsonOptions(o => {
+            }).AddJsonOptions(o =>
+            {
                 o.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
                 o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                 o.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
             });
-            
+
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -153,11 +154,11 @@ namespace WakuWakuAPI.Presentation
         {
             app.UseResponseCompression();
             // Configure the HTTP request pipeline.
-            if(app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            //if(app.Environment.IsDevelopment())
+            //{
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            //}
 
             app.UseHttpsRedirection();
             app.UseExceptionHandler();
