@@ -23,7 +23,7 @@ COPY src/tests/WakuWakuAPI.Presentation.Tests/. /src/tests/WakuWakuAPI.Presentat
 
 RUN dotnet publish -c Release -o out
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:8.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 
 ENTRYPOINT ["dotnet", "WakuWakuAPI.Presentation.dll"]
