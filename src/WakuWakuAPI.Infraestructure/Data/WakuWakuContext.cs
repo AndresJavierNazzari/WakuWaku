@@ -20,10 +20,18 @@ public class WakuWakuContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //Relation between Category and Skill
-        modelBuilder.Entity<Category>()
-            .HasMany(c => c.Skills)
-            .WithOne(s => s.Category)
+        //no hace falta poner esta relacion ya que se hace automaticamente por el uso de ICollection
+        /*
+          modelBuilder.Entity<Category>()
+           .HasMany(c => c.Skills)
+           .WithOne(s => s.Category)
+           .HasForeignKey(s => s.CategoryId);
+
+        modelBuilder.Entity<Skill>()
+            .HasOne(s => s.Category)
+            .WithMany(c => c.Skills)
             .HasForeignKey(s => s.CategoryId);
+        */
 
         //Relation between Skill and Goal
         modelBuilder.Entity<Skill>()
