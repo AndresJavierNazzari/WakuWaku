@@ -3,10 +3,10 @@ WORKDIR /app
 
 # copy csproj and restore as distinct layers
 COPY *.sln .
-COPY src/WakuWakuAPI.Application/*.csproj /src/WakuWakuAPI.Application/
-COPY src/WakuWakuAPI.Domain/*.csproj /src/WakuWakuAPI.Domain/
-COPY src/WakuWakuAPI.Infraestructure/*.csproj /src/WakuWakuAPI.Infraestructure/
-COPY src/WakuWakuAPI.Presentation/*.csproj /src/WakuWakuAPI.Presentation/
+COPY src/WakuWakuAPI.Application/*.csproj src/WakuWakuAPI.Application/
+COPY src/WakuWakuAPI.Domain/*.csproj src/WakuWakuAPI.Domain/
+COPY src/WakuWakuAPI.Infraestructure/*.csproj src/WakuWakuAPI.Infraestructure/
+COPY src/WakuWakuAPI.Presentation/*.csproj src/WakuWakuAPI.Presentation/
 
 COPY tests/WakuWakuAPI.Presentation.Tests/*.csproj /tests/WakuWakuAPI.Presentation.Tests/
 
