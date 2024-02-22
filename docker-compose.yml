@@ -14,6 +14,17 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - wakuwaku-network
+  
+  wakuwaku-backend:
+    container_name: wakuwaku-container
+    image: wakuwaku-backend:v1
+    build: .
+    ports:
+      - 5209:8080
+    depends_on:
+      - postgres-database
+    networks:
+      - wakuwaku-network
 
   
 volumes:
