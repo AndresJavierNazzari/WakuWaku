@@ -54,7 +54,8 @@ public class CategoryController : ControllerBase
     {
         ValidationResult result = _validator.Validate(categoryForCreation);
 
-        if(!result.IsValid) {
+        if(!result.IsValid)
+        {
             throw new ValidationException(result.Errors);
         }
 
@@ -92,16 +93,4 @@ public class CategoryController : ControllerBase
 
         return Ok(response);
     }
-
-    // OPTIONS: /Category
-    [HttpOptions]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    public IActionResult OptionsCategory()
-    {
-        Response.Headers.Append("Allow", "GET, POST, PUT, DELETE, OPTIONS");
-        return Ok();
-    }
 }
-
-
-
