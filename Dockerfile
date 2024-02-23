@@ -9,6 +9,8 @@ COPY src/WakuWakuAPI.Infraestructure/*.csproj /src/WakuWakuAPI.Infraestructure/
 COPY src/WakuWakuAPI.Presentation/*.csproj /src/WakuWakuAPI.Presentation/
 
 COPY src/tests/WakuWakuAPI.Presentation.Tests/*.csproj /src/tests/WakuWakuAPI.Presentation.Tests/
+COPY src/tests/WakuWakuAPI.Integration.Tests/*.csproj /src/tests/WakuWakuAPI.Integration.Tests/
+
 
 RUN dotnet restore src/WakuWakuAPI.Presentation/WakuWakuAPI.Presentation.csproj
 
@@ -20,6 +22,7 @@ COPY src/WakuWakuAPI.Infraestructure/. /src/WakuWakuAPI.Infraestructure/
 COPY src/WakuWakuAPI.Presentation/. /src/WakuWakuAPI.Presentation/
 
 COPY src/tests/WakuWakuAPI.Presentation.Tests/. /src/tests/WakuWakuAPI.Presentation.Tests/
+COPY src/tests/WakuWakuAPI.Integration.Tests/. /src/tests/WakuWakuAPI.Integration.Tests/
 
 RUN dotnet publish -c Release -o out
 
