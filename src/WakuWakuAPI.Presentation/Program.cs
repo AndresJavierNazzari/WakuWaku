@@ -33,6 +33,16 @@ namespace WakuWakuAPI.Presentation
             var builder = WebApplication.CreateBuilder(args);
             builder = ConfigureServicesAndMiddlewares(builder);
 
+            // Aplicar migraciones de Entity Framework Core
+            /*
+
+            using(var scope = builder.Services.BuildServiceProvider().CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<WakuWakuContext>();
+                Console.WriteLine(dbContext.Database.GetConnectionString());
+                dbContext.Database.Migrate();
+            }
+            */
 
             // *********  PIPELINE ************ //
             var app = builder.Build();
