@@ -35,7 +35,7 @@ namespace WakuWakuAPI.Presentation
 
             // *********  PIPELINE ************ //
             var app = builder.Build();
-            //app.Urls.Add("http://*:80");
+            app.Urls.Add("http://*:80");
             ConfigurePipeline(app);
         }
 
