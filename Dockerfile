@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
-
+EXPOSE 8080
 # copy csproj and restore as distinct layers
 COPY *.sln .
 COPY src/WakuWakuAPI.Application/*.csproj src/WakuWakuAPI.Application/
