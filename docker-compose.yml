@@ -1,19 +1,19 @@
 version: '3.9'
 
 services:
-  postgres-database:
-    image: postgres:latest
-    container_name: wakuwaku-postgres-container
-    environment:
-      POSTGRES_DB: wakuwaku
-      POSTGRES_USER: wakuwaku
-      POSTGRES_PASSWORD: wakuwaku
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - wakuwaku-network
+  #postgres-database:
+   # image: postgres:latest
+   # container_name: wakuwaku-postgres-container
+   # environment:
+   #   POSTGRES_DB: wakuwaku
+   #   POSTGRES_USER: wakuwaku
+   #   POSTGRES_PASSWORD: wakuwaku
+   # ports:
+   #   - "5432:5432"
+   # volumes:
+   #   - postgres_data:/var/lib/postgresql/data
+   # networks:
+   #   - wakuwaku-network
   
   wakuwaku-backend:
     container_name: wakuwaku-container
@@ -21,8 +21,8 @@ services:
     build: .
     ports:
       - 5209:8080
-    depends_on:
-      - postgres-database
+    #depends_on:
+    #  - postgres-database
     networks:
       - wakuwaku-network
 
